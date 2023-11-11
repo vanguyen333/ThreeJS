@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import Loader from "../components/Loader";
 
 import Island from "../models/Island";
+import Sky from "../components/Sky";
 {
   /* <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
         POPUP
@@ -38,6 +39,7 @@ const Home = () => {
             groundCOlor="#000000"
             intensity={1}
           />
+          <Sky />
           <Island
             position={islandPosition}
             scale={islandScale}
