@@ -14,7 +14,7 @@ const InfoBox = ({ text, link, btnText }) => (
 const renderContent = {
   1: (
     <h1 className="sm:text-xl sm:leading-snug text-center neo-brutalism-blue py-4 px-8 text-white mx-5">
-      Hi, I am <span className="font-semibold mx-2 text-white">Van</span>👋
+      Hi, I am<span className="font-semibold mx-2 text-white">Van</span>👋
       <br />A Software Engineer from Canada.
     </h1>
   ),
@@ -25,8 +25,20 @@ const renderContent = {
       btnText="Learn more"
     />
   ),
-  3: <h1>3</h1>,
-  4: <h1>4</h1>,
+  3: (
+    <InfoBox
+      text="Learn multiple skills and integrated into practical projects. Curious about the impact?"
+      link="/projects"
+      btnText="Visit my porfolio"
+    />
+  ),
+  4: (
+    <InfoBox
+      text="Need a website done or looking for a dev? I'm just a few keystrokes away"
+      link="/contact"
+      btnText="Let's talk"
+    />
+  ),
 };
 
 const HomeInfo = ({ currentStage }) => {
