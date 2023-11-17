@@ -8,12 +8,17 @@ const Contact = () => {
   const fomrRef = useRef(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [isLoading, setIsLoading] = useState(false);
+
+  const [currnetAnimation, setCurrentAnimation] = useState("idle");
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setCurrentAnimation("hit");
+
     console.log(import.meta.env.VITE_APP_EMAILJS_SERVICE_ID);
     emailjs
       .send(
@@ -36,12 +41,13 @@ const Contact = () => {
       })
       .catch((error) => {
         setIsLoading(false);
+        setCurrentAnimation("idle");
         console.log(error);
         //TODO:show error message
       });
   };
-  const handleFocus = () => {};
-  const handleBlur = () => {};
+  const handleFocus = () => setCurrentAnimation("walk");
+  const handleBlur = () => setCurrentAnimation("idle");
 
   return (
     <section className="relative flex lg:flex-row flex-col max-container">
@@ -115,8 +121,10 @@ const Contact = () => {
           }}
         >
           <directionalLight intensity={2.5} position={[0, 0, 1]} />
+          <ambientLight intensity={0.5} />
           <Suspense fallback={<Loader />}>
             <Fox
+              currnetAnimation={currnetAnimation}
               position={[0.5, 0.35, 0]}
               rotation={[12.6, -0.6, 0]}
               scale={[0.5, 0.5, 0.5]}

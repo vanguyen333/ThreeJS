@@ -15,7 +15,12 @@ const Fox = ({ currnetAnimation, ...props }) => {
   const { nodes, materials, animations } = useGLTF(scene);
   const { actions } = useAnimations(animations, group);
 
-  useEffect(() => {}, [actions, currnetAnimation]);
+  useEffect(() => {
+    Object.values(actions).forEach((action) => action.stop());
+    if (actions[currnetAnimation]) {
+      actions[currnetAnimation].play();
+    }
+  }, [actions, currnetAnimation]);
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
