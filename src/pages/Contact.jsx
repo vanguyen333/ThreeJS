@@ -1,17 +1,44 @@
-import { useState, useRef } from "react";
+import { useState, useRef, Suspense } from "react";
 import emailjs from "@emailjs/browser";
+import { Canvas } from "@react-three/fiber";
+import Fox from "../models/Fox";
+import Loader from "../components/Loader";
 
 const Contact = () => {
   const fomrRef = useRef(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [isLoading, setIsLoading] = useState(false);
   const handleChange = (e) => {
-    setForm({ ...form, [e.targe.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
-  const handlesubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    emailjs.sendForm();
+    console.log(import.meta.env.VITE_APP_EMAILJS_SERVICE_ID);
+    emailjs
+      .send(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          to_name: "Van",
+          from_email: form.email,
+          to_email: "vanguyen333@yahoo.com",
+          message: form.message,
+        },
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        setIsLoading(false);
+        //TODO:to show success message
+        //TODO: hide an alert
+        setForm({ name: "", email: "", message: "" });
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        console.log(error);
+        //TODO:show error message
+      });
   };
   const handleFocus = () => {};
   const handleBlur = () => {};
@@ -22,7 +49,7 @@ const Contact = () => {
         <h1 className="head-text">Get in Touch</h1>
         <form
           className="w-full flex flex-col gap-7 mt-14"
-          onSubmit={handlesubmit}
+          onSubmit={handleSubmit}
         >
           <label className="text-black-500 font-semibold">
             Name
@@ -30,7 +57,7 @@ const Contact = () => {
               type="text"
               name="name"
               className="input"
-              placeholder="your name"
+              placeholder="John"
               required
               value={form.name}
               onChange={handleChange}
@@ -44,7 +71,7 @@ const Contact = () => {
               type="email"
               name="email"
               className="input"
-              placeholder="your email"
+              placeholder="John@gmail.com"
               required
               value={form.email}
               onChange={handleChange}
@@ -58,7 +85,7 @@ const Contact = () => {
               name="message"
               rows={4}
               className="textarea"
-              placeholder="Let me know how can I help you!"
+              placeholder="Write your thoughts here..."
               required
               value={form.message}
               onChange={handleChange}
@@ -67,15 +94,31 @@ const Contact = () => {
             />
           </label>
           <button
-            type="sbubmit"
+            type="submit"
             className="btn"
             disabled={isLoading}
             onFocus={handleFocus}
             onBlur={handleBlur}
           >
-            {isLoading ? "Sending ..." : "Send MEssage"}
+            {isLoading ? "Sending ..." : "Send Message"}
           </button>
         </form>
+      </div>
+
+      <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]">
+        <Canvas
+          camera={{
+            position: [0, 0, 5],
+          }}
+        >
+          <Suspense fallback={<Loader />}>
+            <Fox
+              position={[0.5, 0.35, 0]}
+              rotation={[12, 0, 0]}
+              scale={[0.5, 0.5, 0.5]}
+            />
+          </Suspense>
+        </Canvas>
       </div>
     </section>
   );
