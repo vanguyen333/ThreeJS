@@ -1,4 +1,7 @@
-import React from "react";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
 import { skills } from "../constants";
 const About = () => {
   return (
@@ -31,6 +34,19 @@ const About = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* experience */}
+      <div className="py-167">
+        <h3>Work Experience</h3>{" "}
+        <div className="mt-5 flex flex-col gap-3 text-slate-500">
+          <p>
+            I am a fresh graduate, and a freelandcer building websites for
+            clients.
+          </p>
+        </div>
+        {/*to me commented out  */}
+        <div mt-12 flex></div>
       </div>
     </section>
   );
