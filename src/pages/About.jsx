@@ -43,12 +43,19 @@ const About = () => {
         <h3 className="subhead-text">Work Experience</h3>{" "}
         <div className="mt-5 flex flex-col gap-3 text-slate-500">
           <p>
-            I am a fresh graduate, and a freelandcer building websites for
-            clients.
+            A fresh graduate Computer Progamming student fromn Algonquin College
+            based in Ottawa, and a freelandcer building websites for clients.
           </p>
+          <p>Here is the project I built for a client:</p>
+          <a
+            href="https://practicaldrivingschool.com/"
+            className="text-blue-500"
+          >
+            practicaldrivingschool.com
+          </a>
         </div>
         {/*to be commented out  */}
-        <div mt-12 flex>
+        {/* <div mt-12 flex>
           <VerticalTimeline>
             {experiences.map((experience) => (
               <VerticalTimelineElement
@@ -95,7 +102,7 @@ const About = () => {
               </VerticalTimelineElement>
             ))}
           </VerticalTimeline>
-        </div>
+        </div> */}
       </div>
 
       {/* contact */}
