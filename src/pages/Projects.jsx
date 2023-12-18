@@ -23,6 +23,7 @@ const Projects = () => {
         </p>
       </div>
 
+      <div className="flex flex-wrap my-20 gap-16"></div>
       <div className="flex flex-wrap my-20 gap-16">
         {projects.map((project) => (
           <div className="lg:w-[400px] w-full key={project.name}">
