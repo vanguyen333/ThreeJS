@@ -47,7 +47,10 @@ const About = () => {
             A fresh graduate Computer Progamming student fromn Algonquin College
             based in Ottawa, and a freelandcer building websites for clients.
           </p>
-          <p>Here is the project I built for a client:</p>
+          <p>
+            Here is the project I built for a client using React JS,
+            tailwindcss, and vite:
+          </p>
           <a
             href="https://practicaldrivingschool.com/"
             className="text-blue-500"
