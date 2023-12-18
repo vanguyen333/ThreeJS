@@ -183,6 +183,7 @@ export const socialLinks = [
   },
 ];
 
+export const projectsMe = [{}];
 export const projects = [
   {
     iconUrl: pricewise,
