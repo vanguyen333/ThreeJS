@@ -3,6 +3,7 @@ import { projects } from "../constants";
 import { Link } from "react-router-dom";
 import { arrow } from "../assets/icons";
 import CTA from "../components/CTA";
+import ProjectVideos from "../components/ProjectVideos";
 
 const Projects = () => {
   return (
@@ -23,7 +24,9 @@ const Projects = () => {
         </p>
       </div>
 
-      <div className="flex flex-wrap my-20 gap-16"></div>
+      <div className="flex flex-wrap my-20 gap-16">
+        <ProjectVideos />>
+      </div>
       <div className="flex flex-wrap my-20 gap-16">
         {projects.map((project) => (
           <div className="lg:w-[400px] w-full key={project.name}">
