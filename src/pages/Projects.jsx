@@ -25,7 +25,7 @@ const Projects = () => {
       </div>
 
       <div className="flex flex-wrap my-20 gap-16">
-        <ProjectVideos />>
+        <ProjectVideos />
       </div>
       <div className="flex flex-wrap my-20 gap-16">
         {projects.map((project) => (
