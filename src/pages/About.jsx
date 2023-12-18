@@ -5,6 +5,7 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { skills, experiences } from "../constants";
 import CTA from "../components/CTA";
+import PDSvideo from "../components/PDSvideo";
 const About = () => {
   return (
     <section className="max-container">
@@ -53,6 +54,7 @@ const About = () => {
           >
             practicaldrivingschool.com
           </a>
+          <PDSvideo />
         </div>
         {/*to be commented out  */}
         {/* <div mt-12 flex>
