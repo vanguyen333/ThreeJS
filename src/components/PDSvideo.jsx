@@ -5,6 +5,7 @@ const PDSvideo = () => {
   return (
     <div>
       <video
+        className="py-4"
         src={PDS}
         width="600"
         height="300"
