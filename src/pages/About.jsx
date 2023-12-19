@@ -6,6 +6,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { skills, experiences } from "../constants";
 import CTA from "../components/CTA";
 import PDSvideo from "../components/PDSvideo";
+import Contact from "./Contact";
 const About = () => {
   return (
     <section className="max-container">
