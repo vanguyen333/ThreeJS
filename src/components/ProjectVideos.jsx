@@ -12,7 +12,7 @@ const ProjectVideos = () => {
         Developed a web application that showcases my ability to learn new
         technologies after first exposed to reactjs, vite and tailwindcss.
         <br />
-        Source Code:
+        Source Code:{" "}
         <a
           href="https://github.com/vanguyen333/mysiteO"
           className="text-blue-500"
@@ -52,7 +52,7 @@ const ProjectVideos = () => {
       <p className="mt-2 text-slate-500">
         Live Link:{" "}
         <a href="https://practicaldrivingschool.com/" className="text-blue-500">
-          click Here!
+          Click Here!
         </a>
       </p>
       <video className="py-10" src={PDS} controls="controls" autoPlay="true" />
